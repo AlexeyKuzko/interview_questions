@@ -1,4 +1,4 @@
-# Список пользователей для рецензирования
+# Тут можно будет вести список ревьюеров
 reviewers:
   - autoqa_lead@zt_email.com
   - autoqa_senior@zt_email.com

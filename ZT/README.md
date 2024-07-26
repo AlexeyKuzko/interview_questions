@@ -4,27 +4,24 @@
 
 Созданы тесты, покрывающие 5 высокоприоритетных проверок для функциональности "Авторизация" [Яндекс Паспорта](https://passport.yandex.ru).
 
-Полный чеклист опубликован на **[Google Docs](https://docs.google.com/document/d/11Z_BlI4JSaEnTVgdG9ePdqNOt4Y9M8c55sFXn1QuZ-U/edit)**.
+Allure-отчеты в директории `allure-results`; процент тестового покрытия в отчете `htmlcov/index.html`.
 
-Процент покрытия 100% (отчет: `htmlcov/index.html`)
+Полный чеклист опубликован на **[Google Docs](https://docs.google.com/document/d/11Z_BlI4JSaEnTVgdG9ePdqNOt4Y9M8c55sFXn1QuZ-U/edit)**.
 
 ### Структура проекта
 
-- `Sources` - Test Sources Root
+- `Sources` – Test Sources Root
+  - `base_page.py` - базовая страница "Авторизация"
+- `/tests` - пакет, содержащий все тесты
+  - `ui_test.py` - модуль, содержащий тесты для UI
+  - `api_test.py` - модуль, содержащий тесты для API
+- `/utils` - пакет, содержащий вспомогательные модули
+  - `api_client.py` - модуль, содержащий методы для взаимодействия с API
+  - `browser.py` - модуль, с методами для взаимодействия с браузерами
 - `/run_tests.py` - модуль, выполняющий запуск автотестов
-- `/config`
-  - `config.py`
-- `/pages`
-  - `login_page.py`
-- `/tests`
-  - `test_authorization.py`
-   - `сonftest.py`
-- `/utils`
-  - `api_client.py`
-  - `browser.py`
-  - `data.py`
-- `/results`
-  - `test_results.txt`
+- `/сonftest.py` - модуль, содержащий фикстуры, используемые в тестах
+- `/data.py` - модуль, содержащий вспомогательные данные, используемые в тестах
+- `/pages` - пакет, содержащий POM-страницы
 
 ### Запуск автотестов
 
@@ -36,11 +33,11 @@
 2. **Установка зависимостей**
 
     ```bash
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
     ```
 
 3. **Запуск автотестов и создание Allure-отчета**
 
     ```bash
-    pytest -v tests --alluredir allure_results && allure serve allure_results
+    python3 Sources/run_tests.py && allure serve allure_results
     ```
